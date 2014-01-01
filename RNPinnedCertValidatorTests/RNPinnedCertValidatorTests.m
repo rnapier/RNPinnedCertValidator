@@ -99,7 +99,6 @@
 
 - (NSString *)certPathForName:(NSString *)name {
   return [[NSBundle bundleForClass:[self class]] pathForResource:name ofType:@"cer"];
-
 }
 
 - (NSString *)goodCertPath {
