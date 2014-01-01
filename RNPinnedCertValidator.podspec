@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "http://github.com/rnapier/RNPinnedCertValidator"
-  s.license      = 'MIT (example)'
+  s.license      = 'MIT'
 
   s.author             = { "Rob Napier" => "robnapier@gmail.com" }
   s.social_media_url = "http://twitter.com/cocoaphony"
@@ -37,5 +37,5 @@ Pod::Spec.new do |s|
   s.framework  = 'Security'
 
   s.requires_arc = true
-  
+
 end
