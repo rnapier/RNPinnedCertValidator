@@ -9,9 +9,6 @@
 #import <XCTest/XCTest.h>
 #import "RNPinnedCertValidator.h"
 
-@interface RNPinnedCertValidatorTests : XCTestCase
-@end
-
 @interface MockAuthenticationChallengeSender : NSObject <NSURLAuthenticationChallengeSender>
 @property BOOL receivedCancel;
 @property BOOL receivedContinue;
@@ -78,47 +75,74 @@
 
 @end
 
+@interface RNPinnedCertValidatorTests : XCTestCase
+@property MockAuthenticationChallengeSender *senderProbe;
+@end
+
 @implementation RNPinnedCertValidatorTests
 
 - (void)setUp {
   [super setUp];
+  self.senderProbe = [MockAuthenticationChallengeSender new];
 }
 
 - (void)tearDown {
   [super tearDown];
 }
 
-- (void)testGood {
-  NSString *goodCertPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"www.example.com" ofType:@"cer"];
-  RNPinnedCertValidator *validator = [[RNPinnedCertValidator alloc] initWithCertificatePath:goodCertPath];
-  SecCertificateRef certificate = SecCertificateCreateWithData(NULL, (__bridge CFDataRef)([NSData dataWithContentsOfFile:goodCertPath]));
+- (NSString *)goodCertPath {
+  return [[NSBundle bundleForClass:[self class]] pathForResource:@"www.example.com" ofType:@"cer"];
+}
 
+- (NSString *)expiredCertPath {
+  return [[NSBundle bundleForClass:[self class]] pathForResource:@"www.example.com-Expired" ofType:@"cer"];
+}
+
+- (NSURLAuthenticationChallenge *)challengeForCertificate:(SecCertificateRef)certificate {
   SecPolicyRef policy = SecPolicyCreateSSL(true, CFSTR("www.example.com"));
   SecTrustRef trust;
   SecTrustCreateWithCertificates(certificate, policy, &trust);
 
   MockProtectionSpace *protectionSpace = [[MockProtectionSpace alloc] initWithHost:@"www.example.com"
-                                                                                port:0
-                                                                            protocol:@"https"
-                                                                               realm:nil
-                                                                authenticationMethod:NSURLAuthenticationMethodServerTrust];
+                                                                              port:0
+                                                                          protocol:@"https"
+                                                                             realm:nil
+                                                              authenticationMethod:NSURLAuthenticationMethodServerTrust];
   protectionSpace.serverTrust = trust;
 
-  MockAuthenticationChallengeSender *sender = [MockAuthenticationChallengeSender new];
-
-  NSURLAuthenticationChallenge *challenge = [[NSURLAuthenticationChallenge alloc] initWithProtectionSpace:protectionSpace
-                                                                                       proposedCredential:nil
-                                                                                     previousFailureCount:0
-                                                                                          failureResponse:nil
-                                                                                                    error:NULL
-                                                                                                   sender:sender];
-  [validator validateChallenge:challenge];
-
-  XCTAssertTrue([sender receivedUse], @"Certificate should trust itself.");
-
-  CFRelease(certificate);
+  return[[NSURLAuthenticationChallenge alloc] initWithProtectionSpace:protectionSpace
+                                                   proposedCredential:nil
+                                                 previousFailureCount:0
+                                                      failureResponse:nil
+                                                                error:NULL
+                                                               sender:self.senderProbe];
   CFRelease(policy);
   CFRelease(trust);
 }
+
+- (void)testGood {
+  RNPinnedCertValidator *validator = [[RNPinnedCertValidator alloc] initWithCertificatePath:[self goodCertPath]];
+  SecCertificateRef certificate = SecCertificateCreateWithData(NULL,
+                                                               (__bridge CFDataRef)([NSData dataWithContentsOfFile:[self goodCertPath]]));
+
+
+  [validator validateChallenge:[self challengeForCertificate:certificate]];
+
+  XCTAssertTrue([self.senderProbe receivedUse], @"Certificate should trust itself.");
+
+  CFRelease(certificate);
+}
+
+- (void)testExpired {
+  RNPinnedCertValidator *validator = [[RNPinnedCertValidator alloc] initWithCertificatePath:[self expiredCertPath]];
+
+  SecCertificateRef certificate = SecCertificateCreateWithData(NULL,
+                                                               (__bridge CFDataRef)([NSData dataWithContentsOfFile:[self expiredCertPath]]));
+  
+  [validator validateChallenge:[self challengeForCertificate:certificate]];
+  XCTAssertTrue([self.senderProbe receivedCancel], @"Certificate should not trust expired cert.");
+  CFRelease(certificate);
+}
+
 
 @end
