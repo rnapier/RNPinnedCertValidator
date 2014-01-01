@@ -10,4 +10,35 @@
 
 @implementation RNPinnedCertValidator
 
+- (id)initWithCertificatePath:(NSString *)path
+{
+  self = [super init];
+  if (self) {
+    SecCertificateRef certificate = SecCertificateCreateWithData(NULL,
+                                                                 (__bridge CFDataRef)([NSData dataWithContentsOfFile:path]));
+    _trustedCertificates = @[CFBridgingRelease(certificate)];
+  }
+  return self;
+}
+
+- (void)validateChallenge:(NSURLAuthenticationChallenge *)challenge {
+  SecTrustRef trust = challenge.protectionSpace.serverTrust;
+
+  SecTrustSetAnchorCertificates(trust, (__bridge CFArrayRef)self.trustedCertificates);
+  SecTrustSetAnchorCertificatesOnly(trust, true);
+
+  SecTrustResultType result;
+  OSStatus status = SecTrustEvaluate(trust, &result);
+  if (status == errSecSuccess &&
+      (result == kSecTrustResultProceed ||
+       result == kSecTrustResultUnspecified)) {
+
+        NSURLCredential *cred = [NSURLCredential credentialForTrust:trust];
+        [challenge.sender useCredential:cred forAuthenticationChallenge:challenge];
+      }
+  else {
+    [challenge.sender cancelAuthenticationChallenge:challenge];
+  }
+}
+
 @end

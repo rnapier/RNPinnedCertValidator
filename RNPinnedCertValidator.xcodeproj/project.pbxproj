@@ -16,6 +16,8 @@
 		FBC64D4D187484DF00970F5D /* libRNPinnedCertValidator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC64D35187484DF00970F5D /* libRNPinnedCertValidator.a */; };
 		FBC64D53187484DF00970F5D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FBC64D51187484DF00970F5D /* InfoPlist.strings */; };
 		FBC64D55187484DF00970F5D /* RNPinnedCertValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC64D54187484DF00970F5D /* RNPinnedCertValidatorTests.m */; };
+		FBC64D5F187485AB00970F5D /* www.example.com-Expired.cer in Resources */ = {isa = PBXBuildFile; fileRef = FBC64D5E187485AB00970F5D /* www.example.com-Expired.cer */; };
+		FBC64D611874867000970F5D /* www.example.com.cer in Resources */ = {isa = PBXBuildFile; fileRef = FBC64D601874867000970F5D /* www.example.com.cer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		FBC64D50187484DF00970F5D /* RNPinnedCertValidatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RNPinnedCertValidatorTests-Info.plist"; sourceTree = "<group>"; };
 		FBC64D52187484DF00970F5D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FBC64D54187484DF00970F5D /* RNPinnedCertValidatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNPinnedCertValidatorTests.m; sourceTree = "<group>"; };
+		FBC64D5E187485AB00970F5D /* www.example.com-Expired.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "www.example.com-Expired.cer"; sourceTree = "<group>"; };
+		FBC64D601874867000970F5D /* www.example.com.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = www.example.com.cer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,8 @@
 			children = (
 				FBC64D50187484DF00970F5D /* RNPinnedCertValidatorTests-Info.plist */,
 				FBC64D51187484DF00970F5D /* InfoPlist.strings */,
+				FBC64D5E187485AB00970F5D /* www.example.com-Expired.cer */,
+				FBC64D601874867000970F5D /* www.example.com.cer */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -214,6 +220,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBC64D53187484DF00970F5D /* InfoPlist.strings in Resources */,
+				FBC64D611874867000970F5D /* www.example.com.cer in Resources */,
+				FBC64D5F187485AB00970F5D /* www.example.com-Expired.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
