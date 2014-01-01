@@ -9,10 +9,10 @@
 /**
  Pinned certificate validator.
  
-  1. Put your certificate in your bundle. Pass its path to -initWithCertificatePath:.
-  2. In -connection:willSendRequestForAuthenticationChallenge:, call [validator validateChallenge:challenge]
-  3. Profit.
- 
+  1. Put your trusted certificate in your bundle.
+  2. Create a validator with -initWithCertificatePath:.
+  3. In -connection:willSendRequestForAuthenticationChallenge:, call [validator validateChallenge:challenge]
+
  If you don't have your certificate in a handy file, pull it from your server:
  
   openssl s_client -connect myserver:443 </dev/null 2>/dev/null | openssl x509 -outform DER > myserver.cer
