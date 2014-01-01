@@ -1,12 +1,4 @@
 Pod::Spec.new do |s|
-
-  # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  These will help people to find your library, and whilst it
-  #  can feel like a chore to fill in it's definitely to your advantage. The
-  #  summary should be tweet-length, and the description more in depth.
-  #
-
   s.name         = "RNPinnedCertValidator"
   s.version      = "1.0.0"
   s.summary      = "Simplify validating pinned SSL certificates."
@@ -29,7 +21,6 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, '7.0'
 
-
   s.source       = { :git => "https://github.com/rnapier/RNPinnedCertValidator.git", :tag => "1.0.0" }
 
   s.source_files  = 'RNPinnedCertValidator'
@@ -37,5 +28,4 @@ Pod::Spec.new do |s|
   s.framework  = 'Security'
 
   s.requires_arc = true
-
 end
