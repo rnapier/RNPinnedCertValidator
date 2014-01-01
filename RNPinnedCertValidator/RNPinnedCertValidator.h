@@ -6,6 +6,19 @@
 //  Copyright (c) 2014 Rob Napier. All rights reserved.
 //
 
+/**
+ Pinned certificate validator.
+ 
+  1. Put your certificate in your bundle. Pass its path to -initWithCertificatePath:.
+  2. In -connection:willSendRequestForAuthenticationChallenge:, call [validator validateChallenge:challenge]
+  3. Profit.
+ 
+ If you don't have your certificate in a handy file, pull it from your server:
+ 
+  openssl s_client -connect myserver:443 </dev/null 2>/dev/null | openssl x509 -outform DER > myserver.cer
+
+ */
+
 #import <Foundation/Foundation.h>
 @import Security;
 
@@ -14,7 +27,6 @@
  Array of trusted SecCertificateRef
  */
 @property (nonatomic, readwrite, copy) NSArray *trustedCertificates;
-
 
 /**
  Load one certificate from disk and trust it.

@@ -18,6 +18,18 @@
 		FBC64D55187484DF00970F5D /* RNPinnedCertValidatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC64D54187484DF00970F5D /* RNPinnedCertValidatorTests.m */; };
 		FBC64D5F187485AB00970F5D /* www.example.com-Expired.cer in Resources */ = {isa = PBXBuildFile; fileRef = FBC64D5E187485AB00970F5D /* www.example.com-Expired.cer */; };
 		FBC64D611874867000970F5D /* www.example.com.cer in Resources */ = {isa = PBXBuildFile; fileRef = FBC64D601874867000970F5D /* www.example.com.cer */; };
+		FBC64D9F1874965B00970F5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC64D38187484DF00970F5D /* Foundation.framework */; };
+		FBC64DA01874965B00970F5D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC64D681874962400970F5D /* CoreGraphics.framework */; };
+		FBC64DA11874965B00970F5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC64D49187484DF00970F5D /* UIKit.framework */; };
+		FBC64DA71874965B00970F5D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FBC64DA51874965B00970F5D /* InfoPlist.strings */; };
+		FBC64DA91874965B00970F5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC64DA81874965B00970F5D /* main.m */; };
+		FBC64DAD1874965B00970F5D /* RNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC64DAC1874965B00970F5D /* RNAppDelegate.m */; };
+		FBC64DB01874965B00970F5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBC64DAE1874965B00970F5D /* Main.storyboard */; };
+		FBC64DB31874965B00970F5D /* RNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC64DB21874965B00970F5D /* RNViewController.m */; };
+		FBC64DB51874965B00970F5D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBC64DB41874965B00970F5D /* Images.xcassets */; };
+		FBC64DCF1874993900970F5D /* www.example.com.cer in Resources */ = {isa = PBXBuildFile; fileRef = FBC64DCE1874993900970F5D /* www.example.com.cer */; };
+		FBC64DD01874996D00970F5D /* RNPinnedCertValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC64D3F187484DF00970F5D /* RNPinnedCertValidator.m */; };
+		FBC64DD218749ABE00970F5D /* www.google.com.cer in Resources */ = {isa = PBXBuildFile; fileRef = FBC64DD118749ABE00970F5D /* www.google.com.cer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +69,20 @@
 		FBC64D54187484DF00970F5D /* RNPinnedCertValidatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNPinnedCertValidatorTests.m; sourceTree = "<group>"; };
 		FBC64D5E187485AB00970F5D /* www.example.com-Expired.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "www.example.com-Expired.cer"; sourceTree = "<group>"; };
 		FBC64D601874867000970F5D /* www.example.com.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = www.example.com.cer; sourceTree = "<group>"; };
+		FBC64D681874962400970F5D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		FBC64D9E1874965B00970F5D /* PinnedCertExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinnedCertExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBC64DA41874965B00970F5D /* PinnedCertExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PinnedCertExample-Info.plist"; sourceTree = "<group>"; };
+		FBC64DA61874965B00970F5D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FBC64DA81874965B00970F5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FBC64DAA1874965B00970F5D /* PinnedCertExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PinnedCertExample-Prefix.pch"; sourceTree = "<group>"; };
+		FBC64DAB1874965B00970F5D /* RNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNAppDelegate.h; sourceTree = "<group>"; };
+		FBC64DAC1874965B00970F5D /* RNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNAppDelegate.m; sourceTree = "<group>"; };
+		FBC64DAF1874965B00970F5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FBC64DB11874965B00970F5D /* RNViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNViewController.h; sourceTree = "<group>"; };
+		FBC64DB21874965B00970F5D /* RNViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNViewController.m; sourceTree = "<group>"; };
+		FBC64DB41874965B00970F5D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FBC64DCE1874993900970F5D /* www.example.com.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = www.example.com.cer; sourceTree = "<group>"; };
+		FBC64DD118749ABE00970F5D /* www.google.com.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = www.google.com.cer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +105,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FBC64D9B1874965B00970F5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBC64DA01874965B00970F5D /* CoreGraphics.framework in Frameworks */,
+				FBC64DA11874965B00970F5D /* UIKit.framework in Frameworks */,
+				FBC64D9F1874965B00970F5D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -87,6 +123,7 @@
 			children = (
 				FBC64D3A187484DF00970F5D /* RNPinnedCertValidator */,
 				FBC64D4E187484DF00970F5D /* RNPinnedCertValidatorTests */,
+				FBC64DA21874965B00970F5D /* PinnedCertExample */,
 				FBC64D37187484DF00970F5D /* Frameworks */,
 				FBC64D36187484DF00970F5D /* Products */,
 			);
@@ -97,6 +134,7 @@
 			children = (
 				FBC64D35187484DF00970F5D /* libRNPinnedCertValidator.a */,
 				FBC64D45187484DF00970F5D /* RNPinnedCertValidatorTests.xctest */,
+				FBC64D9E1874965B00970F5D /* PinnedCertExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,6 +145,7 @@
 				FBC64D38187484DF00970F5D /* Foundation.framework */,
 				FBC64D46187484DF00970F5D /* XCTest.framework */,
 				FBC64D49187484DF00970F5D /* UIKit.framework */,
+				FBC64D681874962400970F5D /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -141,10 +180,37 @@
 		FBC64D4F187484DF00970F5D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FBC64D601874867000970F5D /* www.example.com.cer */,
 				FBC64D50187484DF00970F5D /* RNPinnedCertValidatorTests-Info.plist */,
 				FBC64D51187484DF00970F5D /* InfoPlist.strings */,
 				FBC64D5E187485AB00970F5D /* www.example.com-Expired.cer */,
-				FBC64D601874867000970F5D /* www.example.com.cer */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FBC64DA21874965B00970F5D /* PinnedCertExample */ = {
+			isa = PBXGroup;
+			children = (
+				FBC64DAB1874965B00970F5D /* RNAppDelegate.h */,
+				FBC64DAC1874965B00970F5D /* RNAppDelegate.m */,
+				FBC64DAE1874965B00970F5D /* Main.storyboard */,
+				FBC64DB11874965B00970F5D /* RNViewController.h */,
+				FBC64DB21874965B00970F5D /* RNViewController.m */,
+				FBC64DB41874965B00970F5D /* Images.xcassets */,
+				FBC64DA31874965B00970F5D /* Supporting Files */,
+			);
+			path = PinnedCertExample;
+			sourceTree = "<group>";
+		};
+		FBC64DA31874965B00970F5D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FBC64DD118749ABE00970F5D /* www.google.com.cer */,
+				FBC64DCE1874993900970F5D /* www.example.com.cer */,
+				FBC64DA41874965B00970F5D /* PinnedCertExample-Info.plist */,
+				FBC64DA51874965B00970F5D /* InfoPlist.strings */,
+				FBC64DA81874965B00970F5D /* main.m */,
+				FBC64DAA1874965B00970F5D /* PinnedCertExample-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -187,6 +253,23 @@
 			productReference = FBC64D45187484DF00970F5D /* RNPinnedCertValidatorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		FBC64D9D1874965B00970F5D /* PinnedCertExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBC64DC81874965C00970F5D /* Build configuration list for PBXNativeTarget "PinnedCertExample" */;
+			buildPhases = (
+				FBC64D9A1874965B00970F5D /* Sources */,
+				FBC64D9B1874965B00970F5D /* Frameworks */,
+				FBC64D9C1874965B00970F5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PinnedCertExample;
+			productName = PinnedCertExample;
+			productReference = FBC64D9E1874965B00970F5D /* PinnedCertExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -195,6 +278,11 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Rob Napier";
+				TargetAttributes = {
+					FBC64D44187484DF00970F5D = {
+						TestTargetID = FBC64D9D1874965B00970F5D;
+					};
+				};
 			};
 			buildConfigurationList = FBC64D30187484DF00970F5D /* Build configuration list for PBXProject "RNPinnedCertValidator" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -202,6 +290,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = FBC64D2C187484DF00970F5D;
 			productRefGroup = FBC64D36187484DF00970F5D /* Products */;
@@ -210,6 +299,7 @@
 			targets = (
 				FBC64D34187484DF00970F5D /* RNPinnedCertValidator */,
 				FBC64D44187484DF00970F5D /* RNPinnedCertValidatorTests */,
+				FBC64D9D1874965B00970F5D /* PinnedCertExample */,
 			);
 		};
 /* End PBXProject section */
@@ -222,6 +312,18 @@
 				FBC64D53187484DF00970F5D /* InfoPlist.strings in Resources */,
 				FBC64D611874867000970F5D /* www.example.com.cer in Resources */,
 				FBC64D5F187485AB00970F5D /* www.example.com-Expired.cer in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBC64D9C1874965B00970F5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBC64DB51874965B00970F5D /* Images.xcassets in Resources */,
+				FBC64DA71874965B00970F5D /* InfoPlist.strings in Resources */,
+				FBC64DB01874965B00970F5D /* Main.storyboard in Resources */,
+				FBC64DD218749ABE00970F5D /* www.google.com.cer in Resources */,
+				FBC64DCF1874993900970F5D /* www.example.com.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +346,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FBC64D9A1874965B00970F5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBC64DD01874996D00970F5D /* RNPinnedCertValidator.m in Sources */,
+				FBC64DAD1874965B00970F5D /* RNAppDelegate.m in Sources */,
+				FBC64DA91874965B00970F5D /* main.m in Sources */,
+				FBC64DB31874965B00970F5D /* RNViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -261,6 +374,22 @@
 				FBC64D52187484DF00970F5D /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FBC64DA51874965B00970F5D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FBC64DA61874965B00970F5D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FBC64DAE1874965B00970F5D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FBC64DAF1874965B00970F5D /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -364,6 +493,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PinnedCertExample.app/PinnedCertExample";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -377,6 +507,7 @@
 				);
 				INFOPLIST_FILE = "RNPinnedCertValidatorTests/RNPinnedCertValidatorTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -385,6 +516,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PinnedCertExample.app/PinnedCertExample";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -394,7 +526,50 @@
 				GCC_PREFIX_HEADER = "RNPinnedCertValidator/RNPinnedCertValidator-Prefix.pch";
 				INFOPLIST_FILE = "RNPinnedCertValidatorTests/RNPinnedCertValidatorTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		FBC64DC91874965C00970F5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PinnedCertExample/PinnedCertExample-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PinnedCertExample/PinnedCertExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FBC64DCA1874965C00970F5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PinnedCertExample/PinnedCertExample-Prefix.pch";
+				INFOPLIST_FILE = "PinnedCertExample/PinnedCertExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
@@ -423,6 +598,14 @@
 			buildConfigurations = (
 				FBC64D5C187484DF00970F5D /* Debug */,
 				FBC64D5D187484DF00970F5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FBC64DC81874965C00970F5D /* Build configuration list for PBXNativeTarget "PinnedCertExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBC64DC91874965C00970F5D /* Debug */,
+				FBC64DCA1874965C00970F5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

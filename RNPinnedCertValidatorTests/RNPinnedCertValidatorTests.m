@@ -110,21 +110,21 @@
                                                               authenticationMethod:NSURLAuthenticationMethodServerTrust];
   protectionSpace.serverTrust = trust;
 
-  return[[NSURLAuthenticationChallenge alloc] initWithProtectionSpace:protectionSpace
-                                                   proposedCredential:nil
-                                                 previousFailureCount:0
-                                                      failureResponse:nil
-                                                                error:NULL
-                                                               sender:self.senderProbe];
+  return [[NSURLAuthenticationChallenge alloc] initWithProtectionSpace:protectionSpace
+                                                    proposedCredential:nil
+                                                  previousFailureCount:0
+                                                       failureResponse:nil
+                                                                 error:NULL
+                                                                sender:self.senderProbe];
   CFRelease(policy);
   CFRelease(trust);
 }
 
-- (void)testGood {
+// validateChallenge: should send "use" if the received certificate is the only member of the trusted list, and the certificate is valid.
+- (void)testGoodVsItself {
   RNPinnedCertValidator *validator = [[RNPinnedCertValidator alloc] initWithCertificatePath:[self goodCertPath]];
   SecCertificateRef certificate = SecCertificateCreateWithData(NULL,
                                                                (__bridge CFDataRef)([NSData dataWithContentsOfFile:[self goodCertPath]]));
-
 
   [validator validateChallenge:[self challengeForCertificate:certificate]];
 
@@ -133,16 +133,18 @@
   CFRelease(certificate);
 }
 
-- (void)testExpired {
+// validateChallenge: should send "cancel" if the received certificate is the only member of the trusted list, and the certificate is expired.
+- (void)testExpiredVsItself {
   RNPinnedCertValidator *validator = [[RNPinnedCertValidator alloc] initWithCertificatePath:[self expiredCertPath]];
 
   SecCertificateRef certificate = SecCertificateCreateWithData(NULL,
                                                                (__bridge CFDataRef)([NSData dataWithContentsOfFile:[self expiredCertPath]]));
-  
+
   [validator validateChallenge:[self challengeForCertificate:certificate]];
+
   XCTAssertTrue([self.senderProbe receivedCancel], @"Certificate should not trust expired cert.");
+
   CFRelease(certificate);
 }
-
 
 @end
