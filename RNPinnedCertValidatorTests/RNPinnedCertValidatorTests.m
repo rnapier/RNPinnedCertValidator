@@ -6,6 +6,13 @@
 //  Copyright (c) 2014 Rob Napier. All rights reserved.
 //
 
+//  www.google.com.cer -- Google's certificate
+//  www.example.com.cer -- Self-signed cert
+//  www.example.com-Expired.cer -- Self-signed cert, expired
+//  CA.cer -- "Robert Napier's CA"
+//  www.example.com-CA.cer -- Cert for www.example.com signed by CA.cer
+
+
 #import <XCTest/XCTest.h>
 #import "RNPinnedCertValidator.h"
 
@@ -90,12 +97,29 @@
   [super tearDown];
 }
 
+- (NSString *)certPathForName:(NSString *)name {
+  return [[NSBundle bundleForClass:[self class]] pathForResource:name ofType:@"cer"];
+
+}
+
 - (NSString *)goodCertPath {
-  return [[NSBundle bundleForClass:[self class]] pathForResource:@"www.example.com" ofType:@"cer"];
+  return [self certPathForName:@"www.example.com"];
 }
 
 - (NSString *)expiredCertPath {
-  return [[NSBundle bundleForClass:[self class]] pathForResource:@"www.example.com-Expired" ofType:@"cer"];
+  return [self certPathForName:@"www.example.com-Expired"];
+}
+
+- (NSString *)googleCertPath {
+  return [self certPathForName:@"www.google.com"];
+}
+
+- (NSString *)CACertPath {
+  return [self certPathForName:@"CA"];
+}
+
+- (NSString *)CASignedCertPath {
+  return [self certPathForName:@"www.example.com-CA"];
 }
 
 - (NSURLAuthenticationChallenge *)challengeForCertificate:(SecCertificateRef)certificate {
@@ -133,6 +157,23 @@
   CFRelease(certificate);
 }
 
+
+
+// validateChallenge: should send "cancel" if the received certificate is not a member of the trusted list
+- (void)testUntrusted {
+  RNPinnedCertValidator *validator = [[RNPinnedCertValidator alloc] initWithCertificatePath:[self googleCertPath]];
+
+  SecCertificateRef certificate = SecCertificateCreateWithData(NULL,
+                                                               (__bridge CFDataRef)([NSData dataWithContentsOfFile:[self expiredCertPath]]));
+
+  [validator validateChallenge:[self challengeForCertificate:certificate]];
+
+  XCTAssertTrue([self.senderProbe receivedCancel], @"Certificate should not trust untrusted cert.");
+
+  CFRelease(certificate);
+}
+
+
 // validateChallenge: should send "cancel" if the received certificate is the only member of the trusted list, and the certificate is expired.
 - (void)testExpiredVsItself {
   RNPinnedCertValidator *validator = [[RNPinnedCertValidator alloc] initWithCertificatePath:[self expiredCertPath]];
@@ -146,5 +187,40 @@
 
   CFRelease(certificate);
 }
+
+// validateChallenge: should send "use" if the received certificate is a valid member of the trusted certificates.
+- (void)testExpiredVsList {
+  RNPinnedCertValidator *validator = [RNPinnedCertValidator new];
+
+  SecCertificateRef goodCertificate = SecCertificateCreateWithData(NULL,
+                                                                   (__bridge CFDataRef)([NSData dataWithContentsOfFile:[self goodCertPath]]));
+  SecCertificateRef googleCertificate = SecCertificateCreateWithData(NULL,
+                                                                    (__bridge CFDataRef)([NSData dataWithContentsOfFile:[self googleCertPath]]));
+
+  NSArray *certs = @[(__bridge id)goodCertificate, (__bridge id)googleCertificate];
+
+  validator.trustedCertificates = certs;
+
+  [validator validateChallenge:[self challengeForCertificate:goodCertificate]];
+
+  XCTAssertTrue([self.senderProbe receivedUse], @"Certificate should trust itself in list.");
+
+  CFRelease(goodCertificate);
+  CFRelease(googleCertificate);
+}
+
+// validateChallenge: should send "use" if the received certificate is signed by a member of the trust list.
+- (void)testSignedChain {
+  RNPinnedCertValidator *validator = [[RNPinnedCertValidator alloc] initWithCertificatePath:[self CACertPath]];
+  SecCertificateRef certificate = SecCertificateCreateWithData(NULL,
+                                                               (__bridge CFDataRef)([NSData dataWithContentsOfFile:[self CASignedCertPath]]));
+
+  [validator validateChallenge:[self challengeForCertificate:certificate]];
+
+  XCTAssertTrue([self.senderProbe receivedUse], @"Cert chains should be honored.");
+
+  CFRelease(certificate);
+}
+
 
 @end

@@ -30,6 +30,9 @@
 		FBC64DCF1874993900970F5D /* www.example.com.cer in Resources */ = {isa = PBXBuildFile; fileRef = FBC64DCE1874993900970F5D /* www.example.com.cer */; };
 		FBC64DD01874996D00970F5D /* RNPinnedCertValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = FBC64D3F187484DF00970F5D /* RNPinnedCertValidator.m */; };
 		FBC64DD218749ABE00970F5D /* www.google.com.cer in Resources */ = {isa = PBXBuildFile; fileRef = FBC64DD118749ABE00970F5D /* www.google.com.cer */; };
+		FBC64DD41874A34600970F5D /* www.google.com.cer in Resources */ = {isa = PBXBuildFile; fileRef = FBC64DD31874A34600970F5D /* www.google.com.cer */; };
+		FBC64DD61874A65500970F5D /* www.example.com-CA.cer in Resources */ = {isa = PBXBuildFile; fileRef = FBC64DD51874A65500970F5D /* www.example.com-CA.cer */; };
+		FBC64DD81874A6B300970F5D /* CA.cer in Resources */ = {isa = PBXBuildFile; fileRef = FBC64DD71874A6B300970F5D /* CA.cer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,9 @@
 		FBC64DB41874965B00970F5D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FBC64DCE1874993900970F5D /* www.example.com.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = www.example.com.cer; sourceTree = "<group>"; };
 		FBC64DD118749ABE00970F5D /* www.google.com.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = www.google.com.cer; sourceTree = "<group>"; };
+		FBC64DD31874A34600970F5D /* www.google.com.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = www.google.com.cer; sourceTree = "<group>"; };
+		FBC64DD51874A65500970F5D /* www.example.com-CA.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "www.example.com-CA.cer"; sourceTree = "<group>"; };
+		FBC64DD71874A6B300970F5D /* CA.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = CA.cer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,10 +186,13 @@
 		FBC64D4F187484DF00970F5D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FBC64DD71874A6B300970F5D /* CA.cer */,
+				FBC64DD31874A34600970F5D /* www.google.com.cer */,
 				FBC64D601874867000970F5D /* www.example.com.cer */,
 				FBC64D50187484DF00970F5D /* RNPinnedCertValidatorTests-Info.plist */,
 				FBC64D51187484DF00970F5D /* InfoPlist.strings */,
 				FBC64D5E187485AB00970F5D /* www.example.com-Expired.cer */,
+				FBC64DD51874A65500970F5D /* www.example.com-CA.cer */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -311,7 +320,10 @@
 			files = (
 				FBC64D53187484DF00970F5D /* InfoPlist.strings in Resources */,
 				FBC64D611874867000970F5D /* www.example.com.cer in Resources */,
+				FBC64DD81874A6B300970F5D /* CA.cer in Resources */,
 				FBC64D5F187485AB00970F5D /* www.example.com-Expired.cer in Resources */,
+				FBC64DD41874A34600970F5D /* www.google.com.cer in Resources */,
+				FBC64DD61874A65500970F5D /* www.example.com-CA.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
