@@ -123,11 +123,15 @@
 }
 
 - (NSURLAuthenticationChallenge *)challengeForCertificate:(SecCertificateRef)certificate {
-  SecPolicyRef policy = SecPolicyCreateSSL(true, CFSTR("www.example.com"));
+  return [self challengeForCertificate:certificate host:@"www.example.com"];
+}
+
+- (NSURLAuthenticationChallenge *)challengeForCertificate:(SecCertificateRef)certificate host:(NSString *)host {
+  SecPolicyRef policy = SecPolicyCreateSSL(true, (__bridge CFStringRef)host);
   SecTrustRef trust;
   SecTrustCreateWithCertificates(certificate, policy, &trust);
 
-  MockProtectionSpace *protectionSpace = [[MockProtectionSpace alloc] initWithHost:@"www.example.com"
+  MockProtectionSpace *protectionSpace = [[MockProtectionSpace alloc] initWithHost:host
                                                                               port:0
                                                                           protocol:@"https"
                                                                              realm:nil
@@ -222,5 +226,17 @@
   CFRelease(certificate);
 }
 
+// validateChallenge: should send "cancel" if the received certificate does not match the hostname.
+- (void)testNameMismatch {
+  RNPinnedCertValidator *validator = [[RNPinnedCertValidator alloc] initWithCertificatePath:[self goodCertPath]];
+  SecCertificateRef certificate = SecCertificateCreateWithData(NULL,
+                                                               (__bridge CFDataRef)([NSData dataWithContentsOfFile:[self goodCertPath]]));
+
+  [validator validateChallenge:[self challengeForCertificate:certificate host:@"www.example.org"]];
+
+  XCTAssertTrue([self.senderProbe receivedCancel], @"Name mismatches should not be honored.");
+
+  CFRelease(certificate);
+}
 
 @end
