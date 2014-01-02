@@ -24,8 +24,8 @@
 - (void)validateChallenge:(NSURLAuthenticationChallenge *)challenge {
   SecTrustRef trust = challenge.protectionSpace.serverTrust;
 
+  // disables trusting any anchors other than the ones in trustedCertificates
   SecTrustSetAnchorCertificates(trust, (__bridge CFArrayRef)self.trustedCertificates);
-  SecTrustSetAnchorCertificatesOnly(trust, true);
 
   SecTrustResultType result;
   OSStatus status = SecTrustEvaluate(trust, &result);
