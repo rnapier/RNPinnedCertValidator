@@ -35,7 +35,7 @@
 
 /**
  Validate a challenge for -connection:willSendRequestForAuthenticationChallenge:
- Sends useCredential:forAuthenciationChalleng or cancelAuthenticationChallenge: as appropriate.
+ Sends useCredential:forAuthenticationChallenge or cancelAuthenticationChallenge: as appropriate.
  */
 - (void)validateChallenge:(NSURLAuthenticationChallenge *)challenge;
 

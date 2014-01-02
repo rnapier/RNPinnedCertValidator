@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Rob Napier. All rights reserved.
 //
 
-// To try this out, tap "Trust example.com" to only trust our www.example.com certificate. Top "Trust google" to only
+// To try this out, tap "Trust example.com" to only trust our www.example.com certificate. Tap "Trust google" to only
 // trust Google's cert (it's only good until Apr 9, 2014, so after that you'll need to regenerate:
 
 // openssl s_client -connect www.google.com:443 </dev/null 2>/dev/null | openssl x509 -outform DER > www.google.com.cer
