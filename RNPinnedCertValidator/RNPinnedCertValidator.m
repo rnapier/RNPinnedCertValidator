@@ -25,7 +25,6 @@
   SecTrustRef trust = challenge.protectionSpace.serverTrust;
 
   SecTrustSetAnchorCertificates(trust, (__bridge CFArrayRef)self.trustedCertificates);
-  SecTrustSetAnchorCertificatesOnly(trust, true);
 
   SecTrustResultType result;
   OSStatus status = SecTrustEvaluate(trust, &result);
