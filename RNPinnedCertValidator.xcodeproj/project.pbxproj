@@ -289,7 +289,7 @@
 				ORGANIZATIONNAME = "Rob Napier";
 				TargetAttributes = {
 					FBC64D44187484DF00970F5D = {
-						TestTargetID = FBC64D9D1874965B00970F5D;
+						TestTargetID = FBC64D34187484DF00970F5D;
 					};
 				};
 			};
@@ -505,7 +505,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PinnedCertExample.app/PinnedCertExample";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -519,7 +518,6 @@
 				);
 				INFOPLIST_FILE = "RNPinnedCertValidatorTests/RNPinnedCertValidatorTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -528,7 +526,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PinnedCertExample.app/PinnedCertExample";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -538,7 +535,6 @@
 				GCC_PREFIX_HEADER = "RNPinnedCertValidator/RNPinnedCertValidator-Prefix.pch";
 				INFOPLIST_FILE = "RNPinnedCertValidatorTests/RNPinnedCertValidatorTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -604,6 +600,7 @@
 				FBC64D5A187484DF00970F5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FBC64D5B187484DF00970F5D /* Build configuration list for PBXNativeTarget "RNPinnedCertValidatorTests" */ = {
 			isa = XCConfigurationList;
@@ -612,6 +609,7 @@
 				FBC64D5D187484DF00970F5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FBC64DC81874965C00970F5D /* Build configuration list for PBXNativeTarget "PinnedCertExample" */ = {
 			isa = XCConfigurationList;
@@ -620,6 +618,7 @@
 				FBC64DCA1874965C00970F5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

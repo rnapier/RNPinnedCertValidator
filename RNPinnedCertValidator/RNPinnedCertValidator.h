@@ -34,9 +34,19 @@
 - (instancetype)initWithCertificatePath:(NSString *)path;
 
 /**
- Validate a challenge for -connection:willSendRequestForAuthenticationChallenge:
+ Validate a challenge for NSURLConnectionDelegate -connection:willSendRequestForAuthenticationChallenge:
  Sends useCredential:forAuthenticationChallenge or cancelAuthenticationChallenge: as appropriate.
  */
 - (void)validateChallenge:(NSURLAuthenticationChallenge *)challenge;
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
+
+/**
+ Validate a challenge for NSURLSessionDelegate -URLSession:didReceiveChallenge:completionHandler:
+ Calls completionHandler with appropriate disposition and credential.
+ */
+- (void)validateChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential *credential))completionHandler;
+
+#endif 
 
 @end
